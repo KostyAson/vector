@@ -1,0 +1,12 @@
+.vscode/
+env
+/.env
+/anon.session
+/anon.session-journal
+/compile.txt
+/setenv.py
+/res.wav
+__pycache__/
+planner_server
+tempCodeRunnerFile.py*
+/song.wav
