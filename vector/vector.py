@@ -28,6 +28,7 @@ import struct
 import playsound
 import dotenv
 import vector.settings as settings
+import platform
 
 dotenv.load_dotenv('.env')
 
@@ -62,8 +63,8 @@ class Vector:
         self.telegram_enter = False
         self.telegram_id = None
         self.start_listen = False
-        s1 = 'models/wake_word_linux.ppn'
-        s2 = 'models/porcupine_params_ru_linux.pv'
+        s1 = f'models/wake_word_{platform.system().lower()}.ppn'
+        s2 = f'models/porcupine_params_ru_{platform.system().lower()}.pv'
         self.porcupine = pvporcupine.create(keyword_paths=[s1],
                             access_key="MQ/MUU2o0b6AItZAaa2AApPpjiNeQFOEJ1LsuyqYcosZs47NEolzJQ==",
                             model_path=s2,

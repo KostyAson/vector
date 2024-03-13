@@ -5,8 +5,8 @@ env
 /anon.session-journal
 /compile.txt
 /setenv.py
-/res.wav
+res.wav
 __pycache__/
 planner_server
 tempCodeRunnerFile.py*
-/song.wav
+song.wav
