@@ -185,7 +185,7 @@ class Vector:
             self.app.get_answer_signal.emit(text.replace('+', ''))
             if settings.get('voice_answer'):
                 self.stop_stream()
-                self.tts.talk(text)
+                self.tts.talk(text, self)
                 self.start_stream()
 
     def stop_stream(self):

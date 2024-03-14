@@ -12,12 +12,17 @@ dotenv.load_dotenv('.env')
 
 
 class Tts:
-    def talk(self, text):
+    def talk(self, text, vector):
         if settings.get('tts') == 'yandex':
             audio = self.synthesize_yandex(os.getenv('yandex_tts'), text)
             with open('sounds/res.wav', 'w+') as f:
                 audio.export('sounds/res.wav', format='wav')
-            playsound.playsound('sounds/res.wav', block=False)
+            if vector.condition is None:
+                playsound.playsound('sounds/res.wav', block=False)
+            else:
+                vector.stop_stream()
+                playsound.playsound('sounds/res.wav', block=True)
+                vector.start_stream()
         else:
             self.synthesize_silero(text)
 

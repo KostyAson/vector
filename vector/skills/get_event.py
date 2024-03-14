@@ -39,6 +39,7 @@ class SayEventSkill:
             res = request_to_planner_server(data)
             ans = ''
             for i, x in enumerate(res.decode().split('\n')):
-                ans += f'{i + 1}) {x}.\n'
+                if x:
+                    ans += f'{i + 1}) {x}.\n'
             return ans[:-1]
         return 'данная функция не доступна без входа в телеграм'
